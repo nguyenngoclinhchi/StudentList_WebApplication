@@ -1,13 +1,20 @@
 # Student List
 
 ## List of Contents: 
+
 1. [Prerequisites](##Prerequisites)
+
 2. [Running the Project](##Running the Project)
+
 3. [User Guide](##User Guide)
+
 4. [Features](###Features)
-    * [Add Student/Subject](####Add Student/Subject)
-    * [Edit Student/Subject](####Edit Student/Subject)
-    * [Delete Student/Subject](####Delete Student/Subject)
+
+   * [Add Student/Subject](####Add Student/Subject)
+
+   * [Edit Student/Subject](####Edit Student/Subject)
+
+   * [Delete Student/Subject](####Delete Student/Subject)
 
 ![alt text][CAPTURE1]
 
@@ -27,7 +34,7 @@ The project can be imported into the IDE of your choice, with Java 8 installed, 
 
 ## User Guide
 
-### Features: 
+### Features
 ***
 * Add Student/Subject
 * Edit Student/Subject
