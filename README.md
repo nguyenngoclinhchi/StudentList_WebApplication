@@ -1,6 +1,6 @@
 # Student List
 
-![alt text][CAPTURE1]
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture1.JPG)
 
 ![alt text][CAPTURE2]
 
