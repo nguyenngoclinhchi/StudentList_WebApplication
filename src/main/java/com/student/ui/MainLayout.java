@@ -15,6 +15,7 @@
  */
 package com.student.ui;
 
+import com.student.ui.views.classidslist.ClassIdsList;
 import com.student.ui.views.studentslist.StudentsList;
 import com.student.ui.views.subjectslist.SubjectsList;
 import com.vaadin.flow.component.Text;
@@ -46,7 +47,6 @@ public class MainLayout extends Div
         title.addClassName("main-layout__title");
 
         //Create Link for Student List
-        //TODO 1: Change ReviewList to StudentList
         RouterLink students = new RouterLink(null, StudentsList.class);
         students.add(new Icon(VaadinIcon.LIST), new Text("Student List"));
         students.addClassName("main-layout__nav-item");
@@ -54,12 +54,16 @@ public class MainLayout extends Div
         students.setHighlightCondition(HighlightConditions.sameLocation());
 
         //Create Link for Subject List
-        //TODO 2: Change CatagoriesList to Subject List
         RouterLink subjects = new RouterLink(null, SubjectsList.class);
         subjects.add(new Icon(VaadinIcon.ARCHIVES), new Text("Subjects"));
         subjects.addClassName("main-layout__nav-item");
 
-        Div navigation = new Div(students, subjects);
+        RouterLink classIds = new RouterLink(null, ClassIdsList.class);
+        classIds.add(new Icon(VaadinIcon.ACADEMY_CAP), new Text("ClassIds"));
+        classIds.addClassName("main-layout__nav-item");
+
+
+        Div navigation = new Div(students, subjects, classIds);
         navigation.addClassName("main-layout__nav");
 
         Div header = new Div(title, navigation);

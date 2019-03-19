@@ -1,5 +1,6 @@
 package com.student.backend;
 
+import static com.student.backend.Student.capitalizeWord;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,23 +24,36 @@ public class StudentService {
         private static StudentService createDemoStudentService() {
             final StudentService studentService = new StudentService();
             Random r = new Random();
-            int studentCount = 40 + r.nextInt(10);
+            int studentCount = 60 + r.nextInt(StaticData.SUBJECTS.size() - 65);
             List<Map.Entry<String, String>> students = new ArrayList<>(StaticData.SUBJECTS.entrySet());
+
+            Student student_1st = new Student();
+            Map.Entry<String, String> sub_1st = students.get(0);
+
             for (int i = 0; i < studentCount; i++) {
                 Student student = new Student();
                 Map.Entry<String, String> sub = students
-                        .get(r.nextInt(StaticData.SUBJECTS.size()));
-                Subject subject = SubjectService.getInstance().findSubjectOrThrow(sub.getValue());
+                        .get(StaticData.SUBJECTS.size() - (studentCount) + i);
+                Subject subject = SubjectService.getInstance().findSubjectOrThrow(sub.getValue().split(",")[0]);
+                ClassId classId = ClassIdService.getInstance().findClassIdOrThrow(sub.getValue().split(",")[1]);
                 //Subject subject = new Subject(sub.getValue());
 
-                student.setName(sub.getKey());
+                String name = sub.getKey().trim();
+                student.setFirstName(name);
+                student.setLastName(StaticData.LAST_NAME[r.nextInt(StaticData.LAST_NAME.length)]);
+
                 LocalDate testDate = getRandomDate();
                 student.setDate(testDate);
+
                 //Grade: 1 --> 5
                 student.setGrade(1 + r.nextInt(5));
                 student.setSubject(subject);
+
                 //Student Id: 1 --> 9999
                 student.setStudentId(1 + r.nextInt(9999));
+
+                //Class Id: 1 --> 10
+                student.setClassId(classId);
                 studentService.saveStudent(student);
             }
             return studentService;
@@ -67,20 +81,20 @@ public class StudentService {
         String normalizedFilter = filter.toLowerCase();
         return students.values().stream().filter(
                 students -> filterTextOf(students).contains(normalizedFilter))
-                .sorted((s1, s2) -> s2.getName().compareTo(s1.getName()))
+                .sorted((s1, s2) -> s2.getFirstName().compareTo(s1.getFirstName()))
                 .collect(Collectors.toList());
     }
 
     private String filterTextOf(Student student) {
         LocalDateToStringEncoder dateToStringEncoder = new LocalDateToStringEncoder();
-        String filterableText = Stream.of(
-                student.getName(),
-                student.getSubject() == null ? StaticData.UNDEFINED
-                        : student.getSubject().getName(),
-                String.valueOf(student.getGrade()),
+        String filterableText = String.join("\t",
+                student.getFirstName(),
+                student.getLastName(),
                 String.valueOf(student.getStudentId()),
-                dateToStringEncoder.encode(student.getDate()))
-                .collect(Collectors.joining("\t"));
+                dateToStringEncoder.encode(student.getDate()),
+                student.getClassId() == null ? StaticData.UNDEFINED : student.getClassId().getName(),
+                student.getSubject() == null ? StaticData.UNDEFINED : student.getSubject().getName(),
+                String.valueOf(student.getGrade()));
         return filterableText.toLowerCase();
     }
 
@@ -91,10 +105,15 @@ public class StudentService {
     public void saveStudent(Student student) {
         Student entity = students.get(student.getId());
         Subject subject = student.getSubject();
+        ClassId classId = student.getClassId();
 
         if(subject != null) {
             subject = (Subject) SubjectService.getInstance()
                     .findSubjectById(subject.getId()).orElse(null);
+        }
+        if(classId != null) {
+            classId = (ClassId) ClassIdService.getInstance()
+                    .findClassIdById(classId.getId()).orElse(null);
         }
         if (entity == null) {
             entity = new Student(student);
@@ -105,9 +124,12 @@ public class StudentService {
         } else {
             entity.setGrade(student.getGrade());
             entity.setName(student.getName());
+            entity.setFirstName(student.getFirstName());
+            entity.setLastName(student.getLastName());
             entity.setDate(student.getDate());
             entity.setStudentId(student.getStudentId());
         }
         entity.setSubject(subject);
+        entity.setClassId(classId);
     }
 }

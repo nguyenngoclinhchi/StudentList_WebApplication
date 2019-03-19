@@ -58,9 +58,11 @@ public class SubjectService {
         if(subjectsMatching.isEmpty()) {
             return Optional.empty();
         }
+/*
         if(subjectsMatching.size() > 1) {
             throw new IllegalStateException("Subject " + name + " is ambiguous");
         }
+*/
         return Optional.of(subjectsMatching.get(0));
     }
 

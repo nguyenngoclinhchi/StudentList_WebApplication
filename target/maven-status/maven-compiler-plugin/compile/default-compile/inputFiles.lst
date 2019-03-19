@@ -2,11 +2,15 @@ D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplic
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\ui\common\AbstractEditorDialog.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\ui\common\ConfirmationDialog.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\ui\MainLayout.java
+D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\backend\ClassIdService.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\ui\encoders\LocalDateToStringEncoder.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\backend\Student.java
+D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\ui\views\classidslist\ClassIdsList.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\backend\StaticData.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\backend\StudentService.java
+D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\ui\views\classidslist\ClassIdEditorDialog.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\backend\Subject.java
+D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\backend\ClassId.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\ui\views\studentslist\StudentsList.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\backend\SubjectService.java
 D:\Important things\NUS\IT_Professionalism\Web application\StudentList_WebApplication\src\main\java\com\student\ui\encoders\LongToStringEncoder.java

@@ -37,6 +37,7 @@ public class StudentsList extends PolymerTemplate<StudentsList.StudentsModel> {
         @Encode(value = LongToStringEncoder.class, path = "id")
         @Encode(value = LocalDateToStringEncoder.class, path = "date")
         @Encode(value = LongToStringEncoder.class, path = "subject.id")
+        @Encode(value = LongToStringEncoder.class, path = "classId.id")
         void setStudents(List<Student> students);
     }
 
@@ -53,10 +54,12 @@ public class StudentsList extends PolymerTemplate<StudentsList.StudentsModel> {
     public StudentsList() {
         searchTextField.setPlaceholder("Search Students");
         searchTextField.addValueChangeListener(e -> updateList());
+
         //the level of interaction of the search bar to the data
         //ValueChangeMode.EAGER: High interaction of Search
         //ValueChangeMode.ON_CHANGE: Medium interaction of Search --> have to click Enter to search
         searchTextField.setValueChangeMode(ValueChangeMode.EAGER);
+
         //The shortcut key is CTL + F
         searchTextField.addFocusShortcut(Key.KEY_F, KeyModifier.CONTROL);
 
@@ -75,13 +78,15 @@ public class StudentsList extends PolymerTemplate<StudentsList.StudentsModel> {
         StudentService.getInstance().saveStudent(student);
         updateList();
         Notification.show(
-                "Student successfully" + operation.getNameInText() + "ed. :D", 3000, com.vaadin.flow.component.notification.Notification.Position.BOTTOM_CENTER);
+                "Student successfully" + operation.getNameInText() + "ed.", 3000,
+                Notification.Position.BOTTOM_CENTER);
     }
 
     public void deleteUpdate(Student student) {
         StudentService.getInstance().deleteStudent(student);
         updateList();
-        Notification.show("Student successfully deleted. :D", 3000, Notification.Position.BOTTOM_CENTER);
+        Notification.show("Student successfully deleted.", 3000,
+                Notification.Position.BOTTOM_CENTER);
     }
 
     private void updateList() {

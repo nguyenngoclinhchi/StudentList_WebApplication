@@ -5,6 +5,8 @@ import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import com.student.backend.ClassId;
+import com.student.backend.ClassIdService;
 import com.student.backend.Student;
 import com.student.backend.Subject;
 import com.student.backend.SubjectService;
@@ -19,22 +21,52 @@ import com.vaadin.flow.data.validator.StringLengthValidator;
 
 public class StudentEditorDialog extends AbstractEditorDialog<Student> {
     private transient SubjectService subjectService = SubjectService.getInstance();
+    private transient ClassIdService classIdService = ClassIdService.getInstance();
 
     private ComboBox<Subject> subjectComboBox = new ComboBox<>();
+    private ComboBox<ClassId> classIdComboBox = new ComboBox<>();
     private ComboBox<String> gradeBox = new ComboBox<>();
     private DatePicker dateOfBirth = new DatePicker();
-    private TextField name = new TextField();
+    private TextField firstName = new TextField();
+    private TextField lastName = new TextField();
     private TextField studentId = new TextField();
 
     public StudentEditorDialog(BiConsumer<Student, Operation> saveHandler,
                                Consumer<Student> deleteHandler) {
         super("student", saveHandler, deleteHandler);
-        createNameField();
-        createSubjectBox();
+        createFirstNameField();
+        createLastNameField();
         createDatePicker();
         createStudentIdField();
+        createClassIdBox();
+        createSubjectBox();
         createGradeBox();
     }
+
+    private void createLastNameField() {
+        lastName.setLabel("Last Name");
+        lastName.setRequired(true);
+        getFormLayout().add(lastName);
+        getBinder().forField(lastName)
+                .withConverter(String::trim, String::trim)
+                .withValidator(new StringLengthValidator(
+                        "Last Name should contain at least 3 printable character",
+                        3, null))
+                .bind(Student::getLastName, Student::setLastName);
+    }
+
+    private void createFirstNameField() {
+        firstName.setLabel("First Name");
+        firstName.setRequired(true);
+        getFormLayout().add(firstName);
+        getBinder().forField(firstName)
+                .withConverter(String::trim, String::trim)
+                .withValidator(new StringLengthValidator(
+                        "First Name should contain at least 3 printable characters.",
+                        3, null))
+                .bind(Student::getName, Student::setName);
+    }
+
 
     private void createGradeBox() {
         gradeBox.setLabel("Grade");
@@ -82,6 +114,20 @@ public class StudentEditorDialog extends AbstractEditorDialog<Student> {
                 .bind(Student::getDate, Student::setDate);
     }
 
+    private void createClassIdBox() {
+        classIdComboBox.setLabel("ClassIds");
+        classIdComboBox.setRequired(true);
+        classIdComboBox.setItemLabelGenerator(ClassId::getName);
+        classIdComboBox.setItems(classIdService.findClassIds(""));
+        getFormLayout().add(classIdComboBox);
+
+        getBinder().forField(classIdComboBox)
+                .withValidator(Objects::nonNull,
+                        "The Class ID should be defined")
+                .bind(Student::getClassId, Student::setClassId);
+    }
+
+
     private void createSubjectBox() {
         subjectComboBox.setLabel("Subject");
         subjectComboBox.setRequired(true);
@@ -93,18 +139,6 @@ public class StudentEditorDialog extends AbstractEditorDialog<Student> {
                 .withValidator(Objects::nonNull,
                         "The category should be defined.")
                 .bind(Student::getSubject, Student::setSubject);
-    }
-
-    private void createNameField() {
-        name.setLabel("Name");
-        name.setRequired(true);
-        getFormLayout().add(name);
-        getBinder().forField(name)
-                .withConverter(String::trim, String::trim)
-                .withValidator(new StringLengthValidator(
-                        "Name should contain at least 3 printable characters.",
-                        3, null))
-                .bind(Student::getName, Student::setName);
     }
 
     @Override
