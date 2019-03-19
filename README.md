@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture1.JPG)
 
-![alt text][CAPTURE2]
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture2.JPG)
 
 This is a web application built by **Vaadin platform Java application**, used to help Teacher manage Student information.
 
@@ -27,23 +27,23 @@ The project can be imported into the IDE of your choice, with Java 8 installed, 
 
 #### Add Student/Subject
 
-![alt text][CAPTURE5]
-![alt text][CAPTURE6]
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture5.JPG)
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture6.JPG)
 
 * Click on the Button named `New Student` or `New Subject` to add new Student or New Subject 
 
 #### Edit Student/Subject
 
-![alt text][CAPTURE3]
-![alt text][CAPTURE4]
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture3.JPG)
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture4.JPG)
 
 * Click on the `Edit` button next to the Student/Subject that you want to edit.
 After key in new detail, click `Save`.
 
 #### Delete Student/Subject
 
-![alt text][CAPTURE8]
-![alt text][CAPTURE7]
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture8.JPG)
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture7.JPG)
 
 * Click on the `Edit` button next to the Student/Subject that you want to delete.
 * Click on the `Delete` button and you will see a confirmation window to ask you whether you want to delete the Student/Subject.
