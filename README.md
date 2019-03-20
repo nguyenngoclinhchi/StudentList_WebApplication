@@ -119,3 +119,20 @@ Click on `Save` button to save the new class name.
 * Click on the Shortcut: `CRL + F` to go the Search Bar and key on the class name detail you want to search for.
 
 ![alt text][CAPTURE_16]
+
+[CAPTURE_1](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/OFFLINE_PAGE.png)
+[CAPTURE_2](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/MAIN_1.png)
+[CAPTURE_3](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/MAIN_2.png)
+[CAPTURE_4](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/MAIN_3.png)
+[CAPTURE_5](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/CREATE_1.png)
+[CAPTURE_6](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/CREATE_2.png)
+[CAPTURE_7](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/CREATE_3.png)
+[CAPTURE_8](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/EDIT_1.png)
+[CAPTURE_9](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/EDIT_2.png)
+[CAPTURE_10](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/EDIT_3.png)
+[CAPTURE_11](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/DELETE_1.png)
+[CAPTURE_12](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/DELETE_2.png)
+[CAPTURE_13](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/DELETE_3.png)
+[CAPTURE_14](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/SEARCH_1.png)
+[CAPTURE_15](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/SEARCH_2.png)
+[CAPTURE_16](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/SEARCH_3.png)
