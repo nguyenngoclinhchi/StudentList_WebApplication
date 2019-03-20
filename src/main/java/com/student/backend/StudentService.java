@@ -24,23 +24,17 @@ public class StudentService {
         private static StudentService createDemoStudentService() {
             final StudentService studentService = new StudentService();
             Random r = new Random();
-            int studentCount = 60 + r.nextInt(StaticData.SUBJECTS.size() - 65);
-            List<Map.Entry<String, String>> students = new ArrayList<>(StaticData.SUBJECTS.entrySet());
-
-            Student student_1st = new Student();
-            Map.Entry<String, String> sub_1st = students.get(0);
-
+            StaticData.ElementList studentList = new StaticData.ElementList();
+            List<StaticData.Element> studentTripleList = studentList.getSampleStudentList();
+            int studentCount = r.nextInt(studentTripleList.size());
             for (int i = 0; i < studentCount; i++) {
                 Student student = new Student();
-                Map.Entry<String, String> sub = students
-                        .get(StaticData.SUBJECTS.size() - (studentCount) + i);
-                Subject subject = SubjectService.getInstance().findSubjectOrThrow(sub.getValue().split(",")[0]);
-                ClassId classId = ClassIdService.getInstance().findClassIdOrThrow(sub.getValue().split(",")[1]);
-                //Subject subject = new Subject(sub.getValue());
+                StaticData.Element sub = studentTripleList.get(i);
+                Subject subject = SubjectService.getInstance().findSubjectOrThrow(sub.getSubject());
+                ClassId classId = ClassIdService.getInstance().findClassIdOrThrow(sub.getClassName());
 
-                String name = sub.getKey().trim();
-                student.setFirstName(name);
-                student.setLastName(StaticData.LAST_NAME[r.nextInt(StaticData.LAST_NAME.length)]);
+                student.setFirstName(sub.getFirstName());
+                student.setLastName(sub.getLastName());
 
                 LocalDate testDate = getRandomDate();
                 student.setDate(testDate);

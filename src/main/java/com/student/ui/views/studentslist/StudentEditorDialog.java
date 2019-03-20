@@ -64,7 +64,7 @@ public class StudentEditorDialog extends AbstractEditorDialog<Student> {
                 .withValidator(new StringLengthValidator(
                         "First Name should contain at least 3 printable characters.",
                         3, null))
-                .bind(Student::getName, Student::setName);
+                .bind(Student::getFirstName, Student::setFirstName);
     }
 
 
@@ -97,7 +97,7 @@ public class StudentEditorDialog extends AbstractEditorDialog<Student> {
     }
 
     private void createDatePicker() {
-        dateOfBirth.setLabel("Date Of Birth");
+        dateOfBirth.setLabel("Date Of Birth (mm/dd/yyyy)");
         dateOfBirth.setRequired(true);
         dateOfBirth.setMax(LocalDate.now());
         dateOfBirth.setMin(LocalDate.of(1, 1, 1));

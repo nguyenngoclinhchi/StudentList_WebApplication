@@ -110,10 +110,10 @@ public class ClassIdsList extends VerticalLayout {
     }
 
     private String getNumberOfStudentCount(ClassId classId) {
-        List<ClassId> classIdList = ClassIdService.getInstance()
-                .findClassIds(classId.getName());
+        List<Student> studentList = StudentService.getInstance()
+                .findStudents(classId.getName());
         //int sum = classId.stream().mapToInt(Student::getStudentId).sum();
-        int num = classIdList.size();
+        int num = studentList.size();
         return Integer.toString(num);
     }
 

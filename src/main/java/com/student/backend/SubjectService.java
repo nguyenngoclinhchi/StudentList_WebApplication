@@ -1,6 +1,7 @@
 package com.student.backend;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -19,15 +20,21 @@ public class SubjectService {
 
         private static SubjectService createDemoSubjectService() {
             SubjectService subjectService = new SubjectService();
-            Set<String> subjectNames = new LinkedHashSet<>(
-                    StaticData.SUBJECTS.values());
-            subjectNames.forEach(name -> {
-                Subject subject = subjectService
-                        .doSaveSubject(new Subject(name));
+
+            StaticData.ElementList studentList = new StaticData.ElementList();
+            List<StaticData.Element> studentTripleList = studentList.getSampleStudentList();
+
+            Set<String> subjectName = new HashSet<>();
+
+            for (StaticData.Element subjectElement: studentTripleList) {
+                subjectName.add(subjectElement.getSubject());
+            }
+            for (String name: subjectName) {
+                Subject subject = subjectService.doSaveSubject(new Subject(name));
                 if (StaticData.UNDEFINED.equals(name)) {
                     subjectService.undefinedSubjectId.set(subject.getId());
                 }
-            });
+            }
             return subjectService;
         }
     }
@@ -58,11 +65,14 @@ public class SubjectService {
         if(subjectsMatching.isEmpty()) {
             return Optional.empty();
         }
-/*
         if(subjectsMatching.size() > 1) {
+            System.out.println("Name is: " + name);
+            for (Subject subject : subjectsMatching) {
+                System.out.println(subject.getName());
+            }
+            System.out.println("Subject.get(0): " + name);
             throw new IllegalStateException("Subject " + name + " is ambiguous");
         }
-*/
         return Optional.of(subjectsMatching.get(0));
     }
 

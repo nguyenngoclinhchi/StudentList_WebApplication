@@ -113,7 +113,7 @@ public class SubjectsList extends VerticalLayout {
 
     private String getNumberOfStudentCount(Subject subject) {
         List<Student> subjectList = StudentService.getInstance()
-                .findStudents(subject.getName());
+                        .findStudents(subject.getName());
         //int sum = subjectList.stream().mapToInt(Student::getStudentId).sum();
         int num = subjectList.size();
         return Integer.toString(num);

@@ -1,6 +1,5 @@
 package com.student.backend;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -21,14 +20,18 @@ public class ClassIdService {
 
         private static ClassIdService createDemoClassIdService() {
             ClassIdService classIdService = new ClassIdService();
-            Set<String> classIdNames = new HashSet<>(Arrays.asList(StaticData.CLASS_NAME));
-            classIdNames.forEach(name -> {
-                ClassId classId = classIdService
-                        .doSaveClassId(new ClassId(name));
+            StaticData.ElementList studentList = new StaticData.ElementList();
+            List<StaticData.Element> studentElementList = studentList.getSampleStudentList();
+            Set<String> className = new HashSet<>();
+            for (StaticData.Element classIdElement: studentElementList) {
+                className.add(classIdElement.getClassName());
+            }
+            for (String name : className) {
+                ClassId classId = classIdService.doSaveClassId(new ClassId(name));
                 if (StaticData.UNDEFINED.equals(name)) {
                     classIdService.undefinedClassId.set(classId.getId());
                 }
-            });
+            }
             return classIdService;
         }
     }

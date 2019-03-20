@@ -1,6 +1,8 @@
 package com.student.backend;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -16,9 +18,9 @@ class StaticData {
     private static final String OTHERS = "Other";
     public static final String UNDEFINED = "Undefined";
 
-    private static final String[] SUBS = {ENGLISH, MATHEMATICS, CHEMISTRY, PHYSICS, BIOLOGY, GEOGRAPHY,
+    public static final String[] SUBJECT = {ENGLISH, MATHEMATICS, CHEMISTRY, PHYSICS, BIOLOGY, GEOGRAPHY,
             SOCIAL_STUDIES, MUSIC, OTHERS};
-    private static final String[] FIRST_NAMES = {
+    public static final String[] FIRST_NAMES = {
             "Abigail", "Ava", "Elizabelth", "Emily", "Emma", "Isabella", "Madison", "Mia",
             "Olivia", "Sophia", "Alessia", "Alice", "Aurora", "Giorgia", "Martina", "Leonie",
             "Marie", "Daniela", "Lucia", "Martina", "Sara", "Antonella", "Antonia", "Catalina",
@@ -64,18 +66,69 @@ class StaticData {
     public static final String[] CLASS_NAME = {
             "A0170767", "A0331603", "A0343164", "A0331605", "A0331605", "A0331602", "A0331685", "A0133605",
             "A0331605", "A0331705", "A0361605", "A0331205", "A0331695"};
-    static final Map<String, String> SUBJECTS = new LinkedHashMap<>();
-    static {
-        SUBJECTS.put("Ngoc Linh Chi NGUYEN", MATHEMATICS);
-        for (int i = 0; i < FIRST_NAMES.length; i++) {
-            int j = i % (SUBS.length);
-            int k = i % (CLASS_NAME.length);
-            SUBJECTS.put(FIRST_NAMES[i], SUBS[j] + "," + CLASS_NAME[k]);
+    public static class Element {
+        private String firstName;
+        private String lastName;
+        private String subject;
+        private String className;
+
+        public Element(String firstName, String lastName, String subject, String className) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.subject = subject;
+            this.className = className;
         }
-        SUBJECTS.put("", UNDEFINED);
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public void setFirstName(String firstName) {
+            this.firstName = firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
+        }
+
+        public String getSubject() {
+            return subject;
+        }
+
+        public void setSubject(String subject) {
+            this.subject = subject;
+        }
+
+        public String getClassName() {
+            return className;
+        }
+
+        public void setClassName(String className) {
+            this.className = className;
+        }
     }
+    public static class ElementList {
+        private List<Element> LIST_STUDENTDS;
 
+        public ElementList() {
+            this.LIST_STUDENTDS = new ArrayList<>();
+            for (int i = 0; i < FIRST_NAMES.length; i++) {
+                int j = i % (LAST_NAME.length);
+                int k = i % (SUBJECT.length);
+                int l = i % (CLASS_NAME.length);
+                LIST_STUDENTDS.add(new Element(FIRST_NAMES[i], LAST_NAME[j], SUBJECT[k], CLASS_NAME[l]));
+            }
+            LIST_STUDENTDS.add(new Element("", "", UNDEFINED, UNDEFINED));
+        }
 
+        public List<Element> getSampleStudentList() {
+            return LIST_STUDENTDS;
+        }
+    }
     /** This class is not meant to be instantiated. */
     private StaticData() {
     }
