@@ -2,7 +2,7 @@
 
 This is `STUDENT LIST`, a web application built by **Vaadin platform Java application**, used to help Teacher manage Students information.
 
-![alt text][CAPTURE_1]
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/OFFLINE_PAGE.png)
 
 ![alt text][CAPTURE_2]
 
@@ -120,7 +120,7 @@ Click on `Save` button to save the new class name.
 
 ![alt text][CAPTURE_16]
 
-[CAPTURE_1](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/OFFLINE_PAGE.png)
+[CAPTURE_1]
 [CAPTURE_2](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/MAIN_1.png)
 [CAPTURE_3](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/MAIN_2.png)
 [CAPTURE_4](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/MAIN_3.png)
