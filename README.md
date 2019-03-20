@@ -2,7 +2,7 @@
 
 This is `STUDENT LIST`, a web application built by **Vaadin platform Java application**, used to help Teacher manage Students information.
 
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/tree/master/image/OFFLINE_PAGE.png)
+![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/OFFINE_PAGE.png)
 
 ![alt text][CAPTURE_2]
 
