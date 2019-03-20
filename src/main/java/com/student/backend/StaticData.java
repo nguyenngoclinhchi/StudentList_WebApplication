@@ -64,8 +64,8 @@ class StaticData {
             "FLORES", "WASHINGTON", "BUTLER", "SIMMONS", "FOSTER", "GONZALES", "BRYANT",
             "ALEXANDER", "RUSSELL", "GRIFFIN", "DIAZ", "HAYES"};
     public static final String[] CLASS_NAME = {
-            "A0170767", "A0331603", "A0343164", "A0331605", "A0331605", "A0331602", "A0331685", "A0133605",
-            "A0331605", "A0331705", "A0361605", "A0331205", "A0331695"};
+            "A0170767", "A0331603", "A0343164", "A0331605", "A0331805", "A0331602", "A0331685", "A0133605",
+            "A0334605", "A0331705", "A0361605", "A0331205", "A0331695"};
     public static class Element {
         private String firstName;
         private String lastName;
@@ -122,6 +122,9 @@ class StaticData {
                 int l = i % (CLASS_NAME.length);
                 LIST_STUDENTDS.add(new Element(FIRST_NAMES[i], LAST_NAME[j], SUBJECT[k], CLASS_NAME[l]));
             }
+            LIST_STUDENTDS.add(new Element("Ngoc Linh Chi", "NGUYEN", MATHEMATICS, CLASS_NAME[0]));
+            LIST_STUDENTDS.add(new Element("Minh", "NGUYEN", CHEMISTRY, CLASS_NAME[1]));
+            LIST_STUDENTDS.add(new Element("Guang Rong", "BUNNY", CHEMISTRY, CLASS_NAME[2]));
             LIST_STUDENTDS.add(new Element("", "", UNDEFINED, UNDEFINED));
         }
 

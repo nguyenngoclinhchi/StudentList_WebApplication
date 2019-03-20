@@ -78,7 +78,7 @@ public class StudentsList extends PolymerTemplate<StudentsList.StudentsModel> {
         StudentService.getInstance().saveStudent(student);
         updateList();
         Notification.show(
-                "Student successfully" + operation.getNameInText() + "ed.", 3000,
+                "Student successfully " + operation.getNameInText() + "ed.", 3000,
                 Notification.Position.BOTTOM_CENTER);
     }
 

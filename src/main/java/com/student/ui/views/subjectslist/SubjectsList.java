@@ -49,7 +49,7 @@ public class SubjectsList extends VerticalLayout {
 
         Notification.show(
                 "Subject successfully " + operation.getNameInText() + "ed.",
-                3000, Notification.Position.BOTTOM_CENTER);
+                3000, Notification.Position.BOTTOM_START);
         updateView();
     }
 
@@ -65,7 +65,7 @@ public class SubjectsList extends VerticalLayout {
         SubjectService.getInstance().deleteSubject(subject);
 
         Notification.show("Subject successfully deleted.", 3000,
-                Notification.Position.BOTTOM_CENTER);
+                Notification.Position.BOTTOM_START);
         updateView();
     }
 

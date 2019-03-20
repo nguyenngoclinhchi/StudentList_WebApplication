@@ -5,15 +5,16 @@ import java.util.function.Consumer;
 
 import com.student.backend.ClassId;
 import com.student.backend.ClassIdService;
+import com.student.backend.StudentService;
 import com.student.ui.common.AbstractEditorDialog;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.validator.StringLengthValidator;
 
 public class ClassIdEditorDialog extends AbstractEditorDialog<ClassId> {
-    private final TextField classIdNameField = new TextField("ClassId Name");
+    private final TextField classIdNameField = new TextField("Class Name");
     public ClassIdEditorDialog (BiConsumer<ClassId, Operation> itemSaver,
                                Consumer<ClassId> itemDeleter) {
-        super("classId", itemSaver, itemDeleter);
+        super("class name", itemSaver, itemDeleter);
         addNameField();
     }
 
@@ -23,7 +24,7 @@ public class ClassIdEditorDialog extends AbstractEditorDialog<ClassId> {
         getBinder().forField(classIdNameField)
                 .withConverter(String::trim, String::trim)
                 .withValidator(new StringLengthValidator(
-                        "ClassId name must contain at least 2 printable characters",
+                        "Class name must contain at least 2 printable characters",
                         3, null))
                 .withValidator(
                         name -> ClassIdService.getInstance()
@@ -34,13 +35,13 @@ public class ClassIdEditorDialog extends AbstractEditorDialog<ClassId> {
 
     @Override
     protected void confirmDelete() {
-        int classIdCount = ClassIdService.getInstance()
-                .findClassIds(getCurrentItem().getName()).size();
-        if(classIdCount > 0) {
-            openConfirmationDialog("Delete classId",
+        int studentCount = StudentService.getInstance()
+                .findStudents(getCurrentItem().getName()).size();
+        if(studentCount > 0) {
+            openConfirmationDialog("Delete class name",
                     "Are you sure you want to delete the “"
                             + getCurrentItem().getName()
-                            + "” classId? There are " + classIdCount
+                            + "” class name? There are " + studentCount
                             + " students associated with this classId.",
                     "Deleting the classId will mark the associated students as “undefined”. "
                             + "You can edit individual students to select another category.");

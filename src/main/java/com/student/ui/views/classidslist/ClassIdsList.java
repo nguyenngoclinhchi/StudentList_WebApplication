@@ -25,10 +25,10 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "classIds", layout = MainLayout.class)
-@PageTitle("ClassIds List")
+@PageTitle("Class name List")
 public class ClassIdsList extends VerticalLayout {
-    private final TextField searchField = new TextField("", "Search ClassIds");
-    private final H2 header = new H2("ClassIds");
+    private final TextField searchField = new TextField("", "Search Class Names");
+    private final H2 header = new H2("Class Names");
     private final Grid<ClassId> grid = new Grid<>();
 
     private final ClassIdEditorDialog form = new ClassIdEditorDialog(
@@ -48,8 +48,8 @@ public class ClassIdsList extends VerticalLayout {
         ClassIdService.getInstance().saveClassId(classId);
 
         Notification.show(
-                "ClassId successfully " + operation.getNameInText() + "ed.",
-                3000, Notification.Position.BOTTOM_CENTER);
+                "Class name successfully " + operation.getNameInText() + "ed.",
+                3000, Notification.Position.BOTTOM_START);
         updateView();
     }
 
@@ -63,8 +63,8 @@ public class ClassIdsList extends VerticalLayout {
         });
         ClassIdService.getInstance().deleteClassId(classId);
 
-        Notification.show("ClassId successfully deleted.", 3000,
-                Notification.Position.BOTTOM_CENTER);
+        Notification.show("Class name successfully deleted.", 3000,
+                Notification.Position.BOTTOM_START);
         updateView();
     }
 
@@ -76,7 +76,7 @@ public class ClassIdsList extends VerticalLayout {
         if(searchField.getValue().length() > 0) {
             header.setText("Search for “" + searchField.getValue() + "”");
         } else {
-            header.setText("ClassIds");
+            header.setText("Class names");
         }
     }
 
@@ -85,7 +85,7 @@ public class ClassIdsList extends VerticalLayout {
         container.setClassName("view-container");
         container.setAlignItems(Alignment.STRETCH);
 
-        grid.addColumn(ClassId::getName).setHeader("ClassId name").setWidth("8em")
+        grid.addColumn(ClassId::getName).setHeader("Class name").setWidth("8em")
                 .setResizable(true);
         grid.addColumn(this::getNumberOfStudentCount).setHeader("Number of Students ")
                 .setWidth("6em");
@@ -127,7 +127,7 @@ public class ClassIdsList extends VerticalLayout {
         searchField.setValueChangeMode(ValueChangeMode.EAGER);
         searchField.addFocusShortcut(Key.KEY_F, KeyModifier.CONTROL);
 
-        Button newButton = new Button("New ClassId", new Icon("lumo", "plus"));
+        Button newButton = new Button("New Class Name", new Icon("lumo", "plus"));
         newButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         newButton.addClassName("view-toolbar__button");
         newButton.addClickListener(e -> form.open(new ClassId(), AbstractEditorDialog.Operation.ADD));

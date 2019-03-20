@@ -115,7 +115,7 @@ public class StudentEditorDialog extends AbstractEditorDialog<Student> {
     }
 
     private void createClassIdBox() {
-        classIdComboBox.setLabel("ClassIds");
+        classIdComboBox.setLabel("Class Names");
         classIdComboBox.setRequired(true);
         classIdComboBox.setItemLabelGenerator(ClassId::getName);
         classIdComboBox.setItems(classIdService.findClassIds(""));

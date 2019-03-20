@@ -1,10 +1,14 @@
 # Student List
 
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture1.JPG)
+This is `STUDENT LIST`, a web application built by **Vaadin platform Java application**, used to help Teacher manage Students information.
 
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture2.JPG)
+![alt text][CAPTURE_1]
 
-This is a web application built by **Vaadin platform Java application**, used to help Teacher manage Student information.
+![alt text][CAPTURE_2]
+
+![alt text][CAPTURE_3]
+
+![alt text][CAPTURE_4]
 
 ## Prerequisites
 
@@ -18,35 +22,100 @@ The project can be imported into the IDE of your choice, with Java 8 installed, 
 
 ## User Guide
 
-### Features
-***
-* Add Student/Subject
-* Edit Student/Subject
-* Delete Student/Subject
-***
+### Components
 
-#### Add Student/Subject
+#### Student List
 
-* Click on the Button named `New Student` or `New Subject` to add new Student or New Subject 
-* Click on `Save` button to save the new Student or Subject.
+![alt text][CAPTURE_2]
 
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture5.JPG)
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture6.JPG)
+##### Add new Student
 
+* Click on the `New Student` button to add new student.
+* Click on `Save` button to save the new Student.
 
-#### Edit Student/Subject
+![alt text][CAPTURE_5]
 
-* Click on the `Edit` button next to the Student/Subject that you want to edit.
+##### Edit Student
+
+* Click on the `Edit` button next to the Student you want to edit.
 * After key in new detail, click `Save`.
 
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture3.JPG)
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture4.JPG)
+![alt text][CAPTURE_6]
 
-#### Delete Student/Subject
+##### Delete Student
 
-* Click on the `Edit` button next to the Student/Subject that you want to delete.
-* Click on the `Delete` button and you will see a confirmation window to ask you whether you want to delete the Student/Subject.
+* Click on the `Edit` button next to the Student you want to delete.
+* Click on the `Delete` button and you will see a confirmation window to ask you whether you want to delete the Student.
 * Click on the `Delete` button to confirm the last time.
 
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture8.JPG)
-![alt text](https://github.com/nguyenngoclinhchi/StudentList_WebApplication/blob/master/image/Capture7.JPG)
+![alt text][CAPTURE_7]
+
+##### Search Student
+
+* Click on the Shortcut: `CRL + F` to go the Search Bar and key in the Student detail you want to search for.
+
+![alt text][CAPTURE_14]
+
+#### Subject List
+
+![alt text][CAPTURE_3]
+
+##### Add new Subject
+
+Click on the `New Subject` button to add new Subject.
+Click on `Save` button to save the new Subject.
+
+![alt text][CAPTURE_8]
+
+##### Edit Subject
+
+* Click on the `Edit` button next to the Subject you want to edit.
+* After key in new detail, click `Save`.
+
+![alt text][CAPTURE_9]
+
+##### Delete Subject
+
+* Click on the `Edit` button next to the Subject you want to delete.
+* Click on the `Delete` button and you will see a confirmation window to ask you whether you want to delete the Subject.
+* Click on the `Delete` button to confirm the last time.
+
+![alt text][CAPTURE_10]
+
+##### Search Subject
+
+* Click on the Shortcut: `CRL + F` to go the Search Bar and key in the Subject detail you want to search for.
+
+![alt text][CAPTURE_15]
+
+#### Class Name List
+
+![alt text][CAPTURE_4]
+
+##### Add new Class Name
+
+Click on the `New Class Name` button to add new class name.
+Click on `Save` button to save the new class name.
+
+![alt text][CAPTURE_11]
+
+##### Edit class name
+
+* Click on the `Edit` button next to the class name you want to edit.
+* After key in new detail, click `Save`.
+
+![alt text][CAPTURE_12]
+
+##### Delete class name
+
+* Click on the `Edit` button next to the class name you want to delete.
+* Click on the `Delete` button and you will see a confirmation window to ask you whether you want to delete the class name.
+* Click on the `Delete` button to confirm the last time.
+
+![alt text][CAPTURE_13]
+
+##### Search Class Name
+
+* Click on the Shortcut: `CRL + F` to go the Search Bar and key on the class name detail you want to search for.
+
+![alt text][CAPTURE_16]

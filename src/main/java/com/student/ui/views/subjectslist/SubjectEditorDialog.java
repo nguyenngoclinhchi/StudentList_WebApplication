@@ -3,6 +3,7 @@ package com.student.ui.views.subjectslist;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import com.student.backend.StudentService;
 import com.student.backend.Subject;
 import com.student.backend.SubjectService;
 import com.student.ui.common.AbstractEditorDialog;
@@ -34,13 +35,13 @@ public class SubjectEditorDialog extends AbstractEditorDialog<Subject> {
 
     @Override
     protected void confirmDelete() {
-        int subjectCount = SubjectService.getInstance()
-                .findSubjects(getCurrentItem().getName()).size();
-        if(subjectCount > 0) {
+        int studentCount = StudentService.getInstance()
+                .findStudents(getCurrentItem().getName()).size();
+        if(studentCount > 0) {
             openConfirmationDialog("Delete subject",
                     "Are you sure you want to delete the “"
                             + getCurrentItem().getName()
-                            + "” subject? There are " + subjectCount
+                            + "” subject? There are " + studentCount
                             + " students associated with this subject.",
                     "Deleting the subject will mark the associated students as “undefined”. "
                             + "You can edit individual students to select another category.");

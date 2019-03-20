@@ -3,6 +3,7 @@ package com.student.backend;
 import static com.student.backend.Student.capitalizeWord;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,11 +26,11 @@ public class StudentService {
             final StudentService studentService = new StudentService();
             Random r = new Random();
             StaticData.ElementList studentList = new StaticData.ElementList();
-            List<StaticData.Element> studentTripleList = studentList.getSampleStudentList();
-            int studentCount = r.nextInt(studentTripleList.size());
+            List<StaticData.Element> studentElementList = studentList.getSampleStudentList();
+            int studentCount = studentElementList.size();
             for (int i = 0; i < studentCount; i++) {
                 Student student = new Student();
-                StaticData.Element sub = studentTripleList.get(i);
+                StaticData.Element sub = studentElementList.get(i);
                 Subject subject = SubjectService.getInstance().findSubjectOrThrow(sub.getSubject());
                 ClassId classId = ClassIdService.getInstance().findClassIdOrThrow(sub.getClassName());
 
@@ -75,7 +76,7 @@ public class StudentService {
         String normalizedFilter = filter.toLowerCase();
         return students.values().stream().filter(
                 students -> filterTextOf(students).contains(normalizedFilter))
-                .sorted((s1, s2) -> s2.getFirstName().compareTo(s1.getFirstName()))
+                .sorted(Comparator.comparing(Student::getFirstName))
                 .collect(Collectors.toList());
     }
 

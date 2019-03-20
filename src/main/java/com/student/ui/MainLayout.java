@@ -59,7 +59,7 @@ public class MainLayout extends Div
         subjects.addClassName("main-layout__nav-item");
 
         RouterLink classIds = new RouterLink(null, ClassIdsList.class);
-        classIds.add(new Icon(VaadinIcon.ACADEMY_CAP), new Text("ClassIds"));
+        classIds.add(new Icon(VaadinIcon.ACADEMY_CAP), new Text("Class Names"));
         classIds.addClassName("main-layout__nav-item");
 
 
